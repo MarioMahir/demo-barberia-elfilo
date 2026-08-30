@@ -10,8 +10,11 @@
   --humo:   #1E1E1E;  /* paneles */
   --blanco: #FAFAFA;  /* texto */
   --ceniza: #9E9E9E;  /* texto secundario */
-  --rojo:   #E63946;  /* acento principal */
+  --rojo:   #E8404C;  /* acento principal, AA en texto grande sobre carbón */
+  --rojo-oscuro: #C42834;  /* fondo de botones y cierre, AA con blanco */
   --azul:   #2D6CDF;  /* segundo color del poste */
+  --azul-claro: #5A8DEF;  /* azul legible sobre carbón */
+  --linea:  #2A2A2A;  /* bordes y separadores */
 
   /* Tipografía */
   --f-titulares: "Anton", "Arial Black", sans-serif;
@@ -82,7 +85,7 @@ a { color: var(--rojo); }
   gap: 0.5rem;
   min-height: 48px;
   padding: 0.75rem 1.6rem;
-  background: var(--rojo);
+  background: var(--rojo-oscuro);
   color: var(--blanco);
   font-family: var(--f-titulares);
   font-size: var(--t-base);
@@ -91,7 +94,7 @@ a { color: var(--rojo); }
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
 }
-.boton:hover { background: #C42834; transform: translateY(-2px); }
+.boton:hover { background: #A62430; transform: translateY(-2px); }
 .boton--chico { min-height: 44px; padding: 0.5rem 1.1rem; font-size: var(--t-s); white-space: nowrap; }
 .boton--grande { font-size: var(--t-m); padding: 0.9rem 1.4rem; white-space: nowrap; }
 
@@ -139,7 +142,7 @@ a { color: var(--rojo); }
   font-size: var(--t-s);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--azul);
+  color: var(--azul-claro);
   margin: 0 0 1rem;
 }
 .hero h1 { color: var(--blanco); }
@@ -177,7 +180,7 @@ a { color: var(--rojo); }
   align-items: baseline;
   gap: 0.6rem;
   padding: 0.85rem 0;
-  border-bottom: 1px solid #2A2A2A;
+  border-bottom: 1px solid var(--linea);
 }
 .tarifa-nombre {
   font-weight: 500;
@@ -251,7 +254,7 @@ a { color: var(--rojo); }
   border-left: 4px solid var(--rojo);
   padding: 0.75rem 1rem;
 }
-.datos strong { color: var(--rojo); text-transform: uppercase; }
+.datos strong { text-transform: uppercase; }
 
 /* ---------- Ubicación ---------- */
 .ubicacion { display: grid; gap: 1.5rem; }
@@ -260,13 +263,13 @@ a { color: var(--rojo); }
 .horario th, .horario td {
   text-align: left;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #2A2A2A;
+  border-bottom: 1px solid var(--linea);
 }
 .horario th { font-weight: 700; padding-right: 1rem; }
 .mapa iframe {
   width: 100%;
   height: 300px;
-  border: 2px solid #2A2A2A;
+  border: 2px solid var(--linea);
   display: block;
 }
 
@@ -274,13 +277,13 @@ a { color: var(--rojo); }
 .seccion--cierre {
   text-align: center;
   max-width: none;
-  background: var(--rojo);
+  background: var(--rojo-oscuro);
 }
 .seccion--cierre h2 { color: var(--blanco); }
 .seccion--cierre p { max-width: 30rem; margin-left: auto; margin-right: auto; }
 .seccion--cierre .boton { background: var(--carbon); margin-top: 0.5rem; font-size: clamp(1rem, 4.5vw, var(--t-m)); }
 .seccion--cierre .boton:hover { background: #000000; }
-.seccion--cierre .nota-demo { color: #F3C1C5; }
+.seccion--cierre .nota-demo { color: #FBE9EA; }
 
 /* ---------- Pie ---------- */
 .pie {
@@ -304,7 +307,7 @@ a { color: var(--rojo); }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #1EBE5D;
+  background: #128C46;
   color: var(--blanco);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
