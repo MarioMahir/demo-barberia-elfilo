@@ -60,6 +60,14 @@ h2 { font-size: var(--t-l); color: var(--rojo); }
 
 a { color: var(--rojo); }
 
+::selection {
+  background: var(--rojo);
+  color: var(--carbon);
+}
+
+/* Anclas: que el título no quede tapado por la barra fija */
+section[id] { scroll-margin-top: 4.25rem; }
+
 :focus-visible {
   outline: 3px solid var(--azul);
   outline-offset: 3px;
@@ -181,7 +189,11 @@ a { color: var(--rojo); }
   gap: 0.6rem;
   padding: 0.85rem 0;
   border-bottom: 1px solid var(--linea);
+  transition: border-color 0.2s ease;
 }
+.tarifa:hover { border-bottom-color: var(--rojo); }
+.tarifa-precio { transition: color 0.2s ease; }
+.tarifa:hover .tarifa-precio { color: var(--blanco); }
 .tarifa-nombre {
   font-weight: 500;
   font-size: var(--t-m);
@@ -215,7 +227,10 @@ a { color: var(--rojo); }
   position: relative;
   overflow: hidden;
   background: var(--humo);
+  border: 1px solid var(--linea);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
+.corte:hover { border-color: var(--rojo); transform: translateY(-3px); }
 .corte span {
   font-family: var(--f-titulares);
   font-size: var(--t-base);
@@ -223,18 +238,39 @@ a { color: var(--rojo); }
   letter-spacing: 0.05em;
   z-index: 1;
 }
+/* Fondo: trama de media tinta, pinstripe diagonal en los pares */
 .corte::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.9;
+  background-image: radial-gradient(rgba(250, 250, 250, 0.06) 1px, transparent 1.6px);
+  background-size: 11px 11px;
 }
-.corte--1::before { background: radial-gradient(circle at 30% 25%, var(--rojo) 0 22%, transparent 23%), radial-gradient(circle at 75% 65%, var(--azul) 0 30%, transparent 31%), var(--humo); }
-.corte--2::before { background: repeating-linear-gradient(-45deg, var(--humo) 0 14px, #262626 14px 28px), linear-gradient(160deg, transparent 55%, var(--rojo) 140%); }
-.corte--3::before { background: radial-gradient(circle at 50% 40%, var(--azul) 0 26%, transparent 27%), repeating-radial-gradient(circle at 50% 40%, transparent 0 10px, #262626 10px 12px); }
-.corte--4::before { background: linear-gradient(115deg, var(--humo) 48%, var(--rojo) 48% 52%, var(--humo) 52%), repeating-linear-gradient(65deg, transparent 0 22px, #262626 22px 24px); }
-.corte--5::before { background: repeating-linear-gradient(0deg, var(--humo) 0 10px, #232323 10px 20px), linear-gradient(200deg, transparent 60%, var(--azul) 150%); }
-.corte--6::before { background: conic-gradient(from 45deg at 70% 30%, var(--rojo) 0 12%, transparent 12%), repeating-linear-gradient(90deg, var(--humo) 0 18px, #262626 18px 36px); }
+.corte:nth-child(even)::before {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 9px,
+    rgba(250, 250, 250, 0.045) 9px 11px
+  );
+  background-size: auto;
+}
+/* Ilustración del corte */
+.corte-arte {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Velo inferior para que la etiqueta se lea sobre el arte */
+.corte::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46%;
+  background: linear-gradient(transparent, rgba(18, 18, 18, 0.85));
+}
 
 /* ---------- La casa ---------- */
 .equipo-texto {
